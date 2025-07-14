@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPPU - Cursinho Popular Pimentas Unifesp</title>
+    <style>
+        :root {
+            --light-bg: #f7f8fa;
+            --primary: #d80029;
+            --accent: #68ff68;
+            --dark-text: #444444;
+            --white: #ffffff;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode {
+            background-color: #222;
+            color: #f0f0f0;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .hero {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-top: 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #b00021;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--dark-text);
+        }
+        
+        .btn-accent:hover {
+            background-color: #58e858;
+        }
+        
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+        
+        .about {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .parallax {
+            min-height: 400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .post-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .post-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .post-content {
+            padding: 20px;
+        }
+        
+        .post-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .post-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .blog-posts {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">CPPU</div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#pre-inscricoes">Pré-inscrições</a></li>
+                    <li><a href="#grade">Grade</a></li>
+                    <li><a href="#colaboradores">Colaboradores</a></li>
+                    <li><a href="#apostilas">Apostilas</a></li>
+                    <li><a href="#privacidade">Privacidade</a></li>
+                    <li><a href="#termos">Termos de Uso</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Cursinho Popular Pimentas Unifesp</h1>
+            <p>Preparando jovens para ingressar no ensino superior com qualidade e acessibilidade</p>
+            <a href="#pre-inscricoes" class="btn">Pré-inscrições</a>
+            <a href="#apostilas" class="btn btn-accent">Apostilas</a>
+        </div>
+    </section>
+    
+    <section>
+        <h2 class="section-title">Sobre o CPPU</h2>
+        <div class="about">
+            <p>O <strong>Cursinho Popular Pimentas Unifesp (CPPU)</strong> é uma iniciativa de estudantes e professores da UNIFESP que visa oferecer preparação para o vestibular de forma acessível à comunidade do bairro dos Pimentas e região.</p>
+            <p>Nossa missão é democratizar o acesso ao ensino superior, oferecendo aulas de qualidade ministradas por estudantes universitários e professores voluntários.</p>
+        </div>
+    </section>
+    
+    <div class="parallax" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+        <div class="parallax-content">
+            <h2>Transformando vidas através da educação</h2>
+            <p>Já ajudamos mais de 200 estudantes a realizarem o sonho de ingressar na universidade</p>
+        </div>
+    </div>
+    
+    <section id="blog">
+        <h2 class="section-title">Últimas Publicações</h2>
+        <div class="blog-posts">
+            <div class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                <div class="post-content">
+                    <h3 class="post-title">Abertura das Pré-inscrições 2025</h3>
+                    <p class="post-excerpt">As pré-inscrições para o CPPU 2025 estarão abertas a partir do dia 15 de agosto. Não perca essa oportunidade!</p>
+                    <a href="#" class="read-more">Ler mais →</a>
+                </div>
+            </div>
+            
+            <div class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                <div class="post-content">
+                    <h3 class="post-title">Resultado do Processo Seletivo 2024</h3>
+                    <p class="post-excerpt">Confira a lista de aprovados para o CPPU no ano de 2024. Parabéns a todos os selecionados!</p>
+                    <a href="#" class="read-more">Ler mais →</a>
+                </div>
+            </div>
+            
+            <div class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                <div class="post-content">
+                    <h3 class="post-title">Aula Inaugural com Ex-Alunos Aprovados</h3>
+                    <p class="post-excerpt">Neste sábado teremos uma aula especial com ex-alunos do CPPU que foram aprovados em universidades públicas.</p>
+                    <a href="#" class="read-more">Ler mais →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="localizacao">
+        <h2 class="section-title">Nossa Localização</h2>
+        <p>O CPPU funciona no campus da UNIFESP em Guarulhos, no bairro dos Pimentas:</p>
+        <div id="map"></div>
+    </section>
+    
+    <section id="contato">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#privacidade">Política de Privacidade</a>
+            <a href="#termos">Termos de Uso</a>
+            <a href="#colaboradores">Seja um Colaborador</a>
+        </div>
+        <p>© 2025 Cursinho Popular Pimentas Unifesp (CPPU) - Todos os direitos reservados</p>
+    </footer>
+    
+    <div class="theme-toggle" id="themeToggle">☀️</div>
+    
+    <script>
+        // Mapa
+        function initMap() {
+            const unifesp = { lat: -23.4545, lng: -46.5343 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: unifesp,
+            });
+            new google.maps.Marker({
+                position: unifesp,
+                map: map,
+                title: "UNIFESP Guarulhos",
+            });
+        }
+        
+        // Tema escuro/claro
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.textContent = '🌙';
+            } else {
+                themeToggle.textContent = '☀️';
+            }
+        });
+        
+        // Carregar API do Google Maps
+        function loadScript() {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&callback=initMap`;
+            script.defer = true;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+        
+        window.onload = loadScript;
+    </script>
+</body>
+</html>
