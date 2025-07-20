@@ -1,0 +1,55 @@
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.2rem;
+  color: var(--primary);
+}
+
+.about {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.about p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+.about strong {
+  color: var(--primary);
+}
+
+/* Estilos para o modo escuro */
+.darkMode .about {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.darkMode .about strong {
+  color: var(--accent);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .about {
+    padding: 25px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 20px 15px;
+  }
+}
