@@ -45,6 +45,16 @@ Modernizar a estrutura e a experiência de navegação do site institucional do 
 
 ---
 
+## 💻 Rodar o projeto localmente
+
+1. Clone o repositório com `git clone https://github.com/Drey012/cppu_page.git`
+2. Acesse o diretório do projeto com `cd CPPU/cppu-page`
+3. Instale as dependências do projeto com `npm install` ou `yarn install`
+4. Rode o projeto com `npm run dev` ou `yarn dev`
+5. Abra o navegador em [http://localhost:3000](http://localhost:3000)
+
+---
+
 ## 👥 Colaboradores
 
 | Nome | GitHub | Instagram |
@@ -53,3 +63,4 @@ Modernizar a estrutura e a experiência de navegação do site institucional do 
 | Felipe Pietro | [FelipePietro](https://github.com/FelipePietro) | [@felipepietro](https://www.instagram.com/felipepietro_o?igsh=MTJ2MDYzZ2RleWdrZQ==) |
 
 ---
+
