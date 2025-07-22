@@ -18,8 +18,7 @@ const ContactForm = () => {
       ...prev,
       [name]: value
     }));
-    
-    // Clear error when user types
+
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -30,43 +29,42 @@ const ContactForm = () => {
 
   const validate = () => {
     const newErrors = {};
-    
+
     if (!formData.nome.trim()) {
       newErrors.nome = 'Por favor, insira seu nome';
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Por favor, insira seu e-mail';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Por favor, insira um e-mail válido';
     }
-    
+
     if (!formData.mensagem.trim()) {
       newErrors.mensagem = 'Por favor, insira sua mensagem';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validate()) return;
-    
+
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
+
     try {
-      // Substitua por sua API endpoint
-      const response = await fetch('/api/contact', {
+      const response = await fetch('http://localhost/CPPU_API/cppu-api/contact.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({
@@ -88,7 +86,7 @@ const ContactForm = () => {
   return (
     <section id="contato" className={styles.contactSection}>
       <h2 className={styles.sectionTitle}>Entre em Contato</h2>
-      
+
       <div className={styles.contactFormContainer}>
         <form onSubmit={handleSubmit} className={styles.contactForm}>
           <div className={`${styles.formGroup} ${errors.nome ? styles.hasError : ''}`}>
@@ -103,7 +101,7 @@ const ContactForm = () => {
             />
             {errors.nome && <span className={styles.errorMessage}>{errors.nome}</span>}
           </div>
-          
+
           <div className={`${styles.formGroup} ${errors.email ? styles.hasError : ''}`}>
             <label htmlFor="email">E-mail</label>
             <input
@@ -116,7 +114,7 @@ const ContactForm = () => {
             />
             {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
           </div>
-          
+
           <div className={`${styles.formGroup} ${errors.mensagem ? styles.hasError : ''}`}>
             <label htmlFor="mensagem">Mensagem</label>
             <textarea
@@ -129,21 +127,21 @@ const ContactForm = () => {
             />
             {errors.mensagem && <span className={styles.errorMessage}>{errors.mensagem}</span>}
           </div>
-          
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className={styles.submitButton}
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
           </button>
-          
+
           {submitStatus === 'success' && (
             <div className={styles.successMessage}>
               Mensagem enviada com sucesso! Entraremos em contato em breve.
             </div>
           )}
-          
+
           {submitStatus === 'error' && (
             <div className={styles.errorMessage}>
               Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.

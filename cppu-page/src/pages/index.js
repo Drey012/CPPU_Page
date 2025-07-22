@@ -13,19 +13,22 @@ export default function Home() {
     <>
       <Head>
         <title>CPPU - Cursinho Popular Pimentas Unifesp</title>
-        <meta name="description" content="Preparando jovens para ingressar no ensino superior com qualidade e acessibilidade" />
+        <meta
+          name="description"
+          content="Preparando jovens para ingressar no ensino superior com qualidade e acessibilidade"
+        />
       </Head>
-      
+
       <Header />
       <main>
         <Hero />
         <About />
-        <Parallax 
+        <Parallax
           imageUrl="/images/parallax-education.jpg"
           title="Transformando vidas através da educação"
           subtitle="Já ajudamos mais de 200 estudantes a realizarem o sonho de ingressar na universidade"
         />
-        <BlogPosts />
+        <BlogPosts posts={posts} />
         <Map />
         <ContactForm />
       </main>
