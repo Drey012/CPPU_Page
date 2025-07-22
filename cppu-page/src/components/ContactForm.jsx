@@ -58,8 +58,7 @@ const ContactForm = () => {
     setSubmitStatus(null);
     
     try {
-      // Substitua por sua API endpoint
-      const response = await fetch('/api/contact', {
+      const response = await fetch('http://localhost/cppu-api/contact.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
