@@ -1,8 +1,9 @@
 .footer {
-  background-color: var(--primary);
+  background-color: var(--default-colors);
   color: white;
   padding: 50px 20px 0;
   margin-top: 60px;
+  transition: all 0.3s ease;
 }
 
 .footerContent {

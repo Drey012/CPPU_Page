@@ -2,11 +2,15 @@
 'use client';
 import { ThemeProvider } from '../context/ThemeContext';
 import '../styles/globals.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
-      <Component {...pageProps} />
+      <Header />
+        <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   );
 }

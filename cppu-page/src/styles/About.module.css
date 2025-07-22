@@ -6,11 +6,14 @@
 }
 
 .about {
-  background-color: white;
+  background-color: var(--section-bg);
   border-radius: 10px;
   padding: 40px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   margin-bottom: 40px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about p {
@@ -23,7 +26,8 @@
 }
 
 .about strong {
-  color: var(--primary);
+  color: var(--default-colors);
+  text-shadow: #f0f0f0 0px 0px 5px;
 }
 
 /* Estilos para o modo escuro */
@@ -52,4 +56,11 @@
   .about {
     padding: 20px 15px;
   }
+}
+
+.about,
+.sectionTitle,
+.about p,
+.about strong {
+  transition: background-color 0.3s, color 0.3s;
 }

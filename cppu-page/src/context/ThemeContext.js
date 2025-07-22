@@ -1,4 +1,3 @@
-// src/context/ThemeContext.js
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
 
@@ -18,6 +17,14 @@ export function ThemeProvider({ children }) {
       setDarkMode(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
