@@ -55,16 +55,17 @@
 }
 
 .readMore {
-  color: #d80029;
+  color: #268a26;
   text-decoration: none;
   font-weight: 500;
   display: inline-block;
   margin-top: 10px;
   transition: color 0.3s;
+  width: fit-content;
 }
 
 .readMore:hover {
-  color: #b00021;
+  color: #1e681e;
   text-decoration: underline;
 }
 

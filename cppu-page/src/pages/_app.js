@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange);
     };
-  }, []);
+  });
 
   return (
     <ThemeProvider>
