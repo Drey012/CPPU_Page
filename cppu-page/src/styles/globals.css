@@ -1,9 +1,27 @@
+*:focus{
+  -webkit-tap-highlight-color: transparent;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
 :root {
   --light-bg: #f7f8fa;
   --primary: #d80029;
   --accent: #68ff68;
   --dark-text: #444444;
-  --white: #ffffff;
+  --section-bg: #ffffff;
+  --default-colors: #d80029;
+}
+
+.dark {
+  --light-bg: #333333;
+  --primary: #FFFBFB;
+  --accent: #268a26;
+  --dark-text: #f0f0f0;
+  --section-bg: #7D7C7C;
+  --default-colors: #b00021;
 }
 
 body {
@@ -26,5 +44,3 @@ body {
   font-size: 2.2rem;
   color: var(--primary);
 }
-
-/* Outros estilos globais... */

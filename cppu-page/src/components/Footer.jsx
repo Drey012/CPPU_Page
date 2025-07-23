@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css';
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -27,28 +27,28 @@ const Footer = () => {
           <h4 className={styles.footerSubtitle}>Contato</h4>
           <address className={styles.footerContact}>
             <p>UNIFESP - Campus Guarulhos</p>
-            <p>Rua dos Pimentas, 1234</p>
+            <p>Estr. do Caminho Velho, 333 - Jardim Nova Cidade, 07252-312</p>
             <p>Guarulhos - SP</p>
             <p>Email: contato@cppu.org.br</p>
-            <p>Telefone: (11) 1234-5678</p>
+            {/* <p>Telefone: (11) 1234-5678</p> */}
           </address>
         </div>
 
         <div className={styles.footerSection}>
           <h4 className={styles.footerSubtitle}>Redes Sociais</h4>
           <div className={styles.socialIcons}>
-            <a href="https://facebook.com" aria-label="Facebook" className={styles.socialIcon}>
+            <a href="https://www.facebook.com/cursinhounifespguarulhos/" aria-label="Facebook" className={styles.socialIcon}>
               <FaFacebook />
             </a>
-            <a href="https://instagram.com" aria-label="Instagram" className={styles.socialIcon}>
+            <a href="https://www.instagram.com/grucppu/" aria-label="Instagram" className={styles.socialIcon}>
               <FaInstagram />
             </a>
-            <a href="https://twitter.com" aria-label="Twitter" className={styles.socialIcon}>
+            {/* <a href="https://twitter.com" aria-label="Twitter" className={styles.socialIcon}>
               <FaTwitter />
             </a>
             <a href="https://youtube.com" aria-label="YouTube" className={styles.socialIcon}>
               <FaYoutube />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@ const Footer = () => {
           <span className={styles.footerSeparator}>|</span>
           <Link href="#termos" className={styles.footerLegalLink}>Termos de Uso</Link>
           <span className={styles.footerSeparator}>|</span>
-          <Link href="#colaboradores" className={styles.footerLegalLink}>Seja um Colaborador</Link>
+          <Link href="#colaboradores" className={styles.footerLegalLink}>Colaboradores</Link>
         </div>
         <p className={styles.footerCopyright}>
           © {new Date().getFullYear()} Cursinho Popular Pimentas Unifesp (CPPU) - Todos os direitos reservados

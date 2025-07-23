@@ -9,6 +9,8 @@
   margin-bottom: 50px;
   font-size: 2.2rem;
   color: var(--primary);
+  text-transform: capitalize;
+  transition: color 0.3s;
 }
 
 .contactFormContainer {
@@ -17,10 +19,11 @@
 }
 
 .contactForm {
-  background-color: white;
+  background-color: var(--section-bg);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .formGroup {
@@ -33,17 +36,17 @@
   margin-bottom: 8px;
   font-weight: 500;
   color: var(--dark-text);
+  transition: color 0.3s;
 }
 
 .formInput {
   width: 100%;
   padding: 12px;
-  
   border: 1px solid #ddd;
   border-radius: 4px;
   font-family: inherit;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .formInput:focus {
@@ -58,7 +61,7 @@
 
 .submitButton {
   display: inline-block;
-  background-color: var(--primary);
+  background-color: var(--default-colors);
   color: white;
   padding: 12px 30px;
   border-radius: 30px;

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -9,6 +10,15 @@ import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 
 export default function Home() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost/CPPU_API/cppu-api/BloggerIntegration.php') // ajuste para a URL da sua API PHP
+      .then(res => res.json())
+      .then(data => setPosts(data))
+      .catch(err => console.error('Erro ao carregar posts:', err));
+  }, []);
+
   return (
     <>
       <Head>
@@ -19,7 +29,6 @@ export default function Home() {
         />
       </Head>
 
-      <Header />
       <main>
         <Hero />
         <About />
@@ -32,7 +41,6 @@ export default function Home() {
         <Map />
         <ContactForm />
       </main>
-      <Footer />
     </>
   );
 }

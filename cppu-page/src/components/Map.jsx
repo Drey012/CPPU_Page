@@ -20,7 +20,7 @@ const MapContainer = dynamic(
         <MapContainer
           center={center}
           zoom={zoom}
-          style={{ height: '100%', width: '80%', margin: '0 auto' }}
+          style={{ height: '100%', width: '100%', margin: '0 auto' }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -41,11 +41,14 @@ const MapContainer = dynamic(
 
 const Map = () => {
   return (
+    <div>
+      <h2 className={styles.sectionTitle}>nossa localização</h2>
     <div id="map" className={styles.map}>
       <MapContainer
         center={[-23.4398490, -46.4046167]}
         zoom={15}
       />
+    </div>
     </div>
   );
 };
