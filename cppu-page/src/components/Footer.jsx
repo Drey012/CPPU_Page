@@ -55,7 +55,7 @@ const Footer = () => {
 
       <div className={styles.footerBottom}>
         <div className={styles.footerLegal}>
-          <Link href="#privacidade" className={styles.footerLegalLink}>Política de Privacidade</Link>
+          <Link href="/privacidade" className={styles.footerLegalLink}>Política de Privacidade</Link>
           <span className={styles.footerSeparator}>|</span>
           <Link href="/termos" className={styles.footerLegalLink}>Termos de Uso</Link>
           <span className={styles.footerSeparator}>|</span>
