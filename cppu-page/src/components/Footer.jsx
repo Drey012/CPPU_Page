@@ -16,7 +16,7 @@ const Footer = () => {
         <div className={styles.footerSection}>
           <h4 className={styles.footerSubtitle}>Links Rápidos</h4>
           <ul className={styles.footerLinks}>
-            <li><Link href="#inicio" className={styles.footerLink}>Início</Link></li>
+            <li><Link href="/" className={styles.footerLink}>Início</Link></li>
             <li><Link href="#pre-inscricoes" className={styles.footerLink}>Pré-inscrições</Link></li>
             <li><Link href="#grade" className={styles.footerLink}>Grade Curricular</Link></li>
             <li><Link href="#apostilas" className={styles.footerLink}>Apostilas</Link></li>
@@ -57,7 +57,7 @@ const Footer = () => {
         <div className={styles.footerLegal}>
           <Link href="#privacidade" className={styles.footerLegalLink}>Política de Privacidade</Link>
           <span className={styles.footerSeparator}>|</span>
-          <Link href="#termos" className={styles.footerLegalLink}>Termos de Uso</Link>
+          <Link href="/termos" className={styles.footerLegalLink}>Termos de Uso</Link>
           <span className={styles.footerSeparator}>|</span>
           <Link href="#colaboradores" className={styles.footerLegalLink}>Colaboradores</Link>
         </div>

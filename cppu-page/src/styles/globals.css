@@ -13,6 +13,8 @@ html{
   --dark-text: #444444;
   --section-bg: #ffffff;
   --default-colors: #d80029;
+  --dark-list: #555555;
+  --quote-bg: #fff3e0;
 }
 
 .dark {
@@ -22,6 +24,8 @@ html{
   --dark-text: #f0f0f0;
   --section-bg: #7D7C7C;
   --default-colors: #b00021;
+  --dark-list: #f0f0f0;
+  --quote-bg: #ffe9a2;
 }
 
 body {

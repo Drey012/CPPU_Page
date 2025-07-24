@@ -1,0 +1,223 @@
+.termsContainer,
+.termsContent,
+.termsContent h1,
+.termsContent h2,
+.termsContent h3,
+.termsContent p,
+.sectionContent,
+.sectionContent p {
+  transition: color 0.3s;
+}
+
+.termsContent h1,
+.termsContent h2,
+.termsContent h3,
+.termsContent p {
+  text-shadow: #e0e0e0 1px 1px 2px;
+}
+
+.termsContainer {
+  min-height: 100vh;
+  background-color: var(--light-bg);
+  padding-top: 100px;
+}
+
+.termsContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: var(--section-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.termsHeader {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid var(--default-colors, #d32f2f);
+}
+
+.termsTitle {
+  font-size: 2.5rem;
+  color: var(--default-colors, #d32f2f);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.termsSubtitle {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.lastUpdated {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-style: italic;
+}
+
+.termsSection {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: var(--default-colors, #d32f2f);
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-left: 4px solid var(--default-colors, #d32f2f);
+  padding-left: 15px;
+}
+
+.sectionContent {
+  line-height: 1.8;
+  color: var(--dark-text);
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.sectionContent p {
+  margin-bottom: 15px;
+}
+
+.restrictionsList {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.restrictionsList li {
+  margin-bottom: 10px;
+  color: var(--dark-text);
+}
+
+.highlight {
+  background-color: var(--quote-bg);
+  padding: 20px;
+  border-left: 4px solid #ff9800;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.highlight p {
+  margin: 0;
+  font-weight: 500;
+  color: #e65100;
+}
+
+.contactInfo {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contactTitle {
+  font-size: 1.3rem;
+  color: var(--default-colors, #d32f2f);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.contactText {
+  color: #666;
+  line-height: 1.6;
+}
+
+.contactEmail {
+  color: var(--default-colors, #d32f2f);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contactEmail:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .termsContainer {
+    padding-top: 80px;
+  }
+
+  .termsContent {
+    margin: 20px;
+    padding: 30px 20px;
+    border-radius: 8px;
+  }
+
+  .termsTitle {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+
+  .sectionContent {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .termsContent {
+    margin: 10px;
+    padding: 20px 15px;
+  }
+
+  .termsTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+    padding-left: 10px;
+  }
+
+  .restrictionsList {
+    padding-left: 15px;
+  }
+
+  .highlight {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .contactInfo {
+    padding: 20px;
+  }
+}
+
+.dark .termsContainer {
+  background-color: #121212;
+}
+
+.dark .termsContent {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark .sectionContent {
+  color: #e0e0e0;
+}
+
+.dark .restrictionsList li {
+  color: #bdbdbd;
+}
+
+.dark .contactInfo {
+  background-color: #2a2a2a;
+}
+
+.dark .contactText {
+  color: #bdbdbd;
+}
+
+.dark .termsSubtitle {
+  color: #bdbdbd;
+}
+
+.dark .lastUpdated {
+  color: #999;
+}
