@@ -78,21 +78,21 @@
   background-color: var(--quote-bg);
   color: var(--dark-text);
   transition: color 0.3s ease;
-  border: 1px solid #ffeaa7;
+  border-left: 4px solid #ff9800;
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
 }
 
 .warningTitle {
-  color: var(--primary);
+  color: #e65100;
   transition: color 0.3s ease;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 .warningText {
-  color: var(--primary);
+  color: #e65100;
   transition: color 0.3s ease;
   margin: 0;
 }

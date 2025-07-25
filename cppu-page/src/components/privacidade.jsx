@@ -158,15 +158,15 @@ export default function PrivacyPolicy() {
                   </p>
                 </div>
 
-                <p>
+                {/* <p>
                   Se você tiver qualquer dúvida sobre esta Política de Privacidade ou sobre o tratamento dos seus dados,
                   entre em contato conosco:
-                </p>
+                </p> */}
               </div>
             </section>
           </article>
 
-          <aside className={styles.contactInfo}>
+          {/* <aside className={styles.contactInfo}>
             <h3 className={styles.contactTitle}>Contato para Questões de Privacidade</h3>
             <div className={styles.contactText}>
               <p>
@@ -182,7 +182,7 @@ export default function PrivacyPolicy() {
                 <strong>UNIFESP - Campus Guarulhos</strong>
               </p>
             </div>
-          </aside>
+          </aside> */}
         </div>
       </main>
     </>

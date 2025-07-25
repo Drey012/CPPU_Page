@@ -11,7 +11,7 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost/CPPU_API/cppu-api/BloggerIntegration.php') // ajuste para a URL da sua API PHP
+    fetch('http://localhost/CPPU_API/cppu-api/BloggerIntegration.php')
       .then(res => res.json())
       .then(data => setPosts(data))
       .catch(err => console.error('Erro ao carregar posts:', err));

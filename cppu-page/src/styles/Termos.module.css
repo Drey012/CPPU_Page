@@ -41,20 +41,20 @@
 
 .termsTitle {
   font-size: 2.5rem;
-  color: var(--default-colors, #d32f2f);
+  color: var(--primary);
   margin-bottom: 15px;
   font-weight: bold;
 }
 
 .termsSubtitle {
   font-size: 1.1rem;
-  color: var(--accent);
+  color: var(--dark-text);
   margin-bottom: 10px;
 }
 
 .lastUpdated {
   font-size: 0.9rem;
-  color: var(--accent);
+  color: var(--dark-text);
   font-style: italic;
 }
 

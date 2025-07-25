@@ -8,12 +8,13 @@ const BlogPosts = ({ posts = [] }) => {
       <div className={styles.blogPostsGrid}>
         {posts.map((post) => (
           <PostCard
-            key={post.id}
+            key={post.slug}
             title={post.title}
             excerpt={post.excerpt}
             imageUrl={post.imageUrl}
             slug={post.slug}
             date={post.date}
+            url={post.url}
           />
         ))}
       </div>
