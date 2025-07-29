@@ -59,7 +59,7 @@ const Footer = () => {
           <span className={styles.footerSeparator}>|</span>
           <Link href="/termos" className={styles.footerLegalLink}>Termos de Uso</Link>
           <span className={styles.footerSeparator}>|</span>
-          <Link href="#colaboradores" className={styles.footerLegalLink}>Colaboradores</Link>
+          <Link href="/colaboradores" className={styles.footerLegalLink}>Colaboradores</Link>
         </div>
         <p className={styles.footerCopyright}>
           © {new Date().getFullYear()} Cursinho Popular Pimentas Unifesp (CPPU) - Todos os direitos reservados

@@ -1,0 +1,216 @@
+.main {
+  padding-top: 120px;
+  min-height: calc(100vh - 120px);
+  background-color: var(--light-bg);
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  font-weight: bold;
+}
+
+.pageTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: var(--dark-text);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.partnersSection {
+  margin-bottom: 4rem;
+}
+
+.partnersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.partnerCard {
+  background-color: var(--section-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.partnerCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.partnerImageContainer {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.partnerImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.partnerName {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.partnerDescription {
+  color: var(--dark-text);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.missionSection {
+  margin-bottom: 4rem;
+  background-color: var(--section-bg);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.missionContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.missionTitle {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.missionText {
+  color: var(--dark-text);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.joinSection {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--section-bg);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.joinTitle {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.joinText {
+  color: var(--dark-text);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.joinButton {
+  display: inline-block;
+  background-color: var(--default-colors);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(216, 0, 41, 0.3);
+}
+
+.joinButton:hover {
+  background-color: var(--default-colors);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(216, 0, 41, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main {
+    padding-top: 100px;
+  }
+
+  .pageTitle {
+    font-size: 2.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .partnersGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .missionTitle {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding-top: 90px;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .partnerCard {
+    padding: 1rem;
+  }
+
+  .partnerImageContainer {
+    height: 150px;
+  }
+
+  .partnerName {
+    font-size: 1.3rem;
+  }
+
+  .joinButton {
+    padding: 0.7rem 1.8rem;
+  }
+}
