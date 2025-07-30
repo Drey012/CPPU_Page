@@ -50,10 +50,10 @@ export default function Header() {
         <nav className={`${styles.nav} ${isOpen ? styles.open : ''}`}>
           <ul className={styles.navList}>
             <li><Link href="/" className={styles.navLink} onClick={() => setIsOpen(false)}>Início</Link></li>
-            <li><Link href="#pre-inscricoes" className={styles.navLink} onClick={() => setIsOpen(false)}>Pré-inscrições</Link></li>
-            <li><Link href="#grade" className={styles.navLink} onClick={() => setIsOpen(false)}>Grade</Link></li>
             <li><Link href="/colaboradores" className={styles.navLink} onClick={() => setIsOpen(false)}>Colaboradores</Link></li>
-            <li><Link href="#apostilas" className={styles.navLink} onClick={() => setIsOpen(false)}>Apostilas</Link></li>
+            {/* <li><Link href="#pre-inscricoes" className={styles.navLink} onClick={() => setIsOpen(false)}>Pré-inscrições</Link></li>
+            <li><Link href="#grade" className={styles.navLink} onClick={() => setIsOpen(false)}>Grade</Link></li> 
+            <li><Link href="#apostilas" className={styles.navLink} onClick={() => setIsOpen(false)}>Apostilas</Link></li> */}
           </ul>
         </nav>
       </div>

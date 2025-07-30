@@ -19,15 +19,17 @@ export default function Colaboradores() {
 
             <div className={styles.partnersGrid}>
               <div className={styles.partnerCard}>
+                <a href="https://www.instagram.com/portasabertas_ong/" alt="ONG Portas Abertas">
                 <div className={styles.partnerImageContainer}>
                   <Image
                     src="/portas_abertas.png"
-                    alt="Cursinho Popular PORTAS Abertas"
+                    alt="Cursinho Popular Portas Abertas"
                     width={300}
                     height={150}
                     className={styles.partnerImage}
                   />
                 </div>
+                </a>
                 <h3 className={styles.partnerName}>Cursinho Popular PORTAS Abertas</h3>
                 <p className={styles.partnerDescription}>
                   Parceiro na missão de democratizar o acesso ao ensino superior através da educação popular.
@@ -35,6 +37,7 @@ export default function Colaboradores() {
               </div>
 
               <div className={styles.partnerCard}>
+                <a href="https://www.instagram.com/cursinhocomunitariopimentas/" alt="Cursinho Comunitário Pimentas">
                 <div className={styles.partnerImageContainer}>
                   <Image
                     src="/logo_CCP.png"
@@ -44,11 +47,29 @@ export default function Colaboradores() {
                     className={styles.partnerImage}
                   />
                 </div>
+                </a>
                 <h3 className={styles.partnerName}>Cursinho Comunitário Pimentas</h3>
                 <p className={styles.partnerDescription}>
                   Juntos Somos Melhores!!! Parceiro na transformação social através da educação.
                 </p>
               </div>
+            <div className={styles.partnerCard}>
+              <a href="https://www.instagram.com/incitainc/" alt="Plataforma Incita">
+              <div className={styles.partnerImageContainer}>
+                <Image
+                  src="/Isologo_Incita.png"
+                  alt="Plataforma Incita"
+                  width={300}
+                  height={150}
+                  className={styles.partnerImage}
+                />
+              </div>
+              </a>
+              <h3 className={styles.partnerName}>Plataforma Incita</h3>
+              <p className={styles.partnerDescription}>
+                Plataforma Online para prática de redação, ajudando vestibulandos de todas as idades a ingressar no ensino superior.
+              </p>
+            </div>
             </div>
           </section>
 
