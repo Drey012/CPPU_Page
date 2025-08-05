@@ -17,9 +17,10 @@ const Footer = () => {
           <h4 className={styles.footerSubtitle}>Links Rápidos</h4>
           <ul className={styles.footerLinks}>
             <li><Link href="/" className={styles.footerLink}>Início</Link></li>
-            <li><Link href="#pre-inscricoes" className={styles.footerLink}>Pré-inscrições</Link></li>
+            <li><Link href="/colaboradores" className={styles.footerLink}>Colaboradores</Link></li>
+            {/* <li><Link href="#pre-inscricoes" className={styles.footerLink}>Pré-inscrições</Link></li>
             <li><Link href="#grade" className={styles.footerLink}>Grade Curricular</Link></li>
-            <li><Link href="#apostilas" className={styles.footerLink}>Apostilas</Link></li>
+            <li><Link href="#apostilas" className={styles.footerLink}>Apostilas</Link></li> */}
           </ul>
         </div>
 

@@ -57,7 +57,7 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('http://localhost/CPPU_API/cppu-api/contact.php', {
+      const response = await fetch('https://cppuapi-production.up.railway.app/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

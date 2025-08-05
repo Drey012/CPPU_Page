@@ -30,7 +30,7 @@ export default function Colaboradores() {
                   />
                 </div>
                 </a>
-                <h3 className={styles.partnerName}>Cursinho Popular PORTAS Abertas</h3>
+                <h3 className={styles.partnerName}>ONG Portas Abertas</h3>
                 <p className={styles.partnerDescription}>
                   Parceiro na missão de democratizar o acesso ao ensino superior através da educação popular.
                 </p>
