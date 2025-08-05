@@ -23,7 +23,7 @@ export default function Home() {
         <title>CPPU - Cursinho Popular Pimentas Unifesp</title>
         <meta
           name="description"
-          content="Preparando jovens para ingressar no ensino superior com qualidade e acessibilidade"
+          content="Preparando jovens para ingressar no ensino superior com qualidade e acessibilidade!"
         />
       </Head>
 
