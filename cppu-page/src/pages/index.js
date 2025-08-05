@@ -17,6 +17,8 @@ export default function Home() {
       .catch(err => console.error('Erro ao carregar posts:', err));
   }, []);
 
+  console.log('Esperamos que goste do site :)')
+
   return (
     <>
       <Head>
