@@ -6,6 +6,7 @@ import Parallax from '../components/Parallax';
 import BlogPosts from '../components/BlogPosts';
 import Map from '../components/Map';
 import ContactForm from '../components/ContactForm';
+import styles from '../styles/BlogPosts.module.css';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -38,7 +39,8 @@ export default function Home() {
           subtitle="Já ajudamos mais de 200 estudantes a realizarem o sonho de ingressar na universidade"
         />
         <Map />
-        <BlogPosts posts={posts} />
+        <h2 className={styles.sectionTitle}>Últimas Publicações</h2>
+        <BlogPosts posts={posts} limit={3} />
         <ContactForm />
       </main>
     </>

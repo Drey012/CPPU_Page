@@ -1,0 +1,130 @@
+.container {
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  padding-top: 3%;
+}
+
+.blogSection {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: -80px;
+  font-size: 2.2rem;
+  color: var(--primary);
+}
+
+.blogPostsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Skeleton Cards - Estrutura idêntica aos PostCards reais */
+.skeletonCard {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: pulse 2s infinite;
+  margin-top: 80px;
+}
+
+.skeletonImage {
+  height: 200px;
+  background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-highlight) 50%, var(--skeleton-base) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonContent {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeletonLine {
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-highlight) 50%, var(--skeleton-base) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Animações */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+/* Modo escuro para skeletons */
+.dark .skeletonCard {
+  background-color: #333;
+}
+
+.dark .skeletonImage,
+.dark .skeletonLine {
+  --skeleton-base: #555;
+  --skeleton-highlight: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .blogSection {
+    padding: 60px 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+  
+  .blogPostsGrid {
+    gap: 20px;
+  }
+  
+  .skeletonImage {
+    height: 180px;
+  }
+  
+  .skeletonContent {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blogSection {
+    padding: 40px 15px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .blogPostsGrid {
+    grid-template-columns: 1fr;
+  }
+}
