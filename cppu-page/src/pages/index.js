@@ -12,7 +12,7 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('https://cppuapi-production.up.railway.app/blogger')
+    fetch('https://cppuapi-production.up.railway.app/getLatestPost')
       .then(res => res.json())
       .then(data => setPosts(data))
       .catch(err => console.error('Erro ao carregar posts:', err));
@@ -39,7 +39,6 @@ export default function Home() {
           subtitle="Já ajudamos mais de 200 estudantes a realizarem o sonho de ingressar na universidade"
         />
         <Map />
-        <h2 className={styles.sectionTitle}>Últimas Publicações</h2>
         <BlogPosts posts={posts} limit={3} />
         <ContactForm />
       </main>

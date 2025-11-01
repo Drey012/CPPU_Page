@@ -1,4 +1,6 @@
-
+.mapSection{
+  padding-top: 20px;
+}
 /* Estilos para o modo escuro */
 .darkMode .map {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);

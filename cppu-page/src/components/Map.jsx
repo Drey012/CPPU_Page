@@ -41,7 +41,7 @@ const MapContainer = dynamic(
 
 const Map = () => {
   return (
-    <div>
+    <div className={styles.mapSection}>
       <h2 className={styles.sectionTitle}>nossa localização</h2>
     <div id="map" className={styles.map}>
       <MapContainer

@@ -17,6 +17,7 @@ html{
   --quote-bg: #fff3e0;
   --skeleton-base: #e6e6e6;
   --skeleton-highlight: #f5f5f5;
+  --moderated-green: #236c23;
 }
 
 .dark {
@@ -28,6 +29,7 @@ html{
   --default-colors: #b00021;
   --dark-list: #f0f0f0;
   --quote-bg: #ffe9a2;
+  --moderated-green: #3ca83c;
 }
 
 body {

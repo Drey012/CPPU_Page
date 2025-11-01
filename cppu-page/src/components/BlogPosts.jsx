@@ -7,10 +7,14 @@ const BlogPosts = ({ posts = [], limit }) => {
 
   return (
     <section id="blog" className={styles.blogSection}>
+      {limit == 3 && (
+                <h2 className={styles.sectionTitle}>Últimas Publicações</h2>
+      )}
       <div className={styles.blogPostsGrid}>
-        {displayedPosts.map((post) => (
+        {displayedPosts.map((post, i) => (
           <PostCard
             key={post.slug}
+            index={i}
             title={post.title}
             excerpt={post.excerpt}
             imageUrl={post.imageUrl}
@@ -20,6 +24,13 @@ const BlogPosts = ({ posts = [], limit }) => {
           />
         ))}
       </div>
+      {limit == 3 && (
+        <div className={styles.seeAllContainer}>
+          <a href="/publicacoes" className={styles.seeAllButton}>
+            Ver todas as publicações
+          </a>
+        </div>
+      )}
     </section>
   );
 };
