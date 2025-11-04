@@ -36,7 +36,7 @@ const PostCard = ({ title, excerpt, imageUrl, slug, date, url, index }) => {
         </div>
         <h3 className={styles.postTitle}>{title}</h3>
         <p className={styles.postExcerpt}>{excerpt}</p>
-        <Link href={url} className={styles.readMore}>
+        <Link href={'/publicacoes/' + slug} className={styles.readMore}>
           Ler mais →
         </Link>
       </div>

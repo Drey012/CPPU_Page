@@ -5,76 +5,80 @@ import SkeletonPost from './SkeletonPost';
 import styles from '../styles/Publicacoes.module.css';
 import { motion } from 'framer-motion';
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 6; // posts por página local
 const SKELETONS = 3;
 
 export default function Publicacoes() {
   const [allPosts, setAllPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [nextPageToken, setNextPageToken] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // calcula total de páginas local
   const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  useEffect(() => {
-    let mounted = true;
+  // Função para buscar posts do backend
+  const fetchPosts = async (token = null) => {
     setLoading(true);
+    try {
+      const url = new URL('https://cppuapi-production.up.railway.app/getAllPosts.php');
+      if (token) url.searchParams.append('pageToken', token);
 
-    fetch('https://cppuapi-production.up.railway.app/blogger')
-      .then(async (res) => {
-        if (!res.ok) {
-          const err = await res.json().catch(() => ({}));
-          throw new Error(err.error || 'Erro ao conectar ao servidor.');
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (!mounted) return;
-        const postsArray = Array.isArray(data.posts)
-          ? data.posts
-          : (data.posts && Array.isArray(data.posts.items) ? data.posts.items : []);
-        setAllPosts(postsArray);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (!mounted) return;
-        console.error('Erro ao carregar posts:', err.message);
-        setError('Não foi possível carregar as publicações.');
-        setLoading(false);
-      });
+      const res = await fetch(url.toString());
+      if (!res.ok) throw new Error('Erro ao buscar posts no servidor.');
+      const data = await res.json();
 
-    return () => { mounted = false; };
+      if (Array.isArray(data.posts)) {
+        setAllPosts(prev => [...prev, ...data.posts]);
+      }
+      if (data.nextPageToken) {
+        setNextPageToken(data.nextPageToken);
+      } else {
+        setNextPageToken(null);
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Não foi possível carregar as publicações.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Carrega os primeiros 15 posts na montagem
+  useEffect(() => {
+    fetchPosts();
   }, []);
 
-  // Paginação local
+  // posts visíveis na página local
   const start = (currentPage - 1) * PAGE_SIZE;
   const visiblePosts = allPosts.slice(start, start + PAGE_SIZE);
 
-  // Observa mudanças de página e faz o scroll depois da renderização
+  // scroll ao mudar de página local
   useEffect(() => {
-    if (!loading) {
-      // Adiciona um pequeno delay para garantir que o layout foi atualizado
-      const timeout = setTimeout(scrollToTop, 100);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentPage, loading]);
+    const timeout = setTimeout(scrollToTop, 100);
+    return () => clearTimeout(timeout);
+  }, [currentPage]);
 
-  const handleNext = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  // Navegação local
+  const handleNext = async () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(prev => prev + 1);
+    } else if (nextPageToken) {
+      // Busca próximos 15 posts do backend se chegamos no final da lista local
+      await fetchPosts(nextPageToken);
+      setCurrentPage(prev => prev + 1);
+    }
   };
 
   const handlePrev = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 1));
+    setCurrentPage(prev => Math.max(prev - 1, 1));
   };
 
-  // Animação geral da seção
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
@@ -96,8 +100,7 @@ export default function Publicacoes() {
       >
         <h1 className={styles.sectionTitle}>Publicações</h1>
 
-        {/* Estado de carregamento */}
-        {loading && (
+        {loading && allPosts.length === 0 && (
           <div className={styles.blogPostsGrid}>
             {Array.from({ length: SKELETONS }).map((_, i) => (
               <SkeletonPost key={i} />
@@ -105,22 +108,18 @@ export default function Publicacoes() {
           </div>
         )}
 
-        {/* Estado de erro */}
         {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
 
-        {/* Nenhum post */}
-        {!loading && !error && visiblePosts.length === 0 && (
+        {!loading && visiblePosts.length === 0 && !error && (
           <p style={{ textAlign: 'center' }}>Nenhuma publicação encontrada.</p>
         )}
 
-        {/* Posts carregados */}
         {!loading && visiblePosts.length > 0 && (
           <>
             <BlogPosts posts={visiblePosts} />
 
-            {/* Paginação */}
             <div className={styles.pageIndicator}>
-              Página {currentPage} de {totalPages}
+              Página {currentPage}
             </div>
 
             <div className={styles.pagination}>
@@ -135,11 +134,15 @@ export default function Publicacoes() {
               <button
                 className={styles.paginationButton}
                 onClick={handleNext}
-                disabled={currentPage === totalPages}
+                disabled={currentPage === totalPages && !nextPageToken}
               >
                 Próxima página
               </button>
             </div>
+
+            {loading && allPosts.length > 0 && (
+              <p style={{ textAlign: 'center', marginTop: '1rem' }}>Carregando mais posts...</p>
+            )}
           </>
         )}
       </motion.div>

@@ -163,14 +163,6 @@
   min-width: 160px;
 }
 
-.paginationButton:first-child::before {
-  content: '⟵ ';
-}
-
-.paginationButton:nth-child(2)::after {
-  content: ' ⟶';
-}
-
 .paginationButton:hover:not(:disabled) {
   background: var(--primary-dark);
   transform: translateY(-2px);
