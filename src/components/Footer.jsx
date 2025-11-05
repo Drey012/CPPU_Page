@@ -31,7 +31,7 @@ const Footer = () => {
             <p>UNIFESP - Campus Guarulhos</p>
             <p>Estr. do Caminho Velho, 333 - Jardim Nova Cidade, 07252-312</p>
             <p>Guarulhos - SP</p>
-            <p>Email: contato@cppu.org.br</p>
+            <p>Email: cppu.unifesp@gmail.com</p>
             {/* <p>Telefone: (11) 1234-5678</p> */}
           </address>
         </div>

@@ -54,7 +54,7 @@ export default function Colaboradores() {
                 </p>
               </div>
             <div className={styles.partnerCard}>
-              <a href="https://www.instagram.com/incitainc/" alt="Plataforma Incita">
+              <a href="https://incita.vercel.app" alt="Plataforma Incita">
               <div className={styles.partnerImageContainer}>
                 <Image
                   src="/Isologo_Incita.png"

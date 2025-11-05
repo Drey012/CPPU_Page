@@ -158,8 +158,8 @@ export default function TermsOfService() {
             <h3 className={styles.contactTitle}>Dúvidas sobre os Termos?</h3>
             <p className={styles.contactText}>
               Se você tiver alguma dúvida sobre estes Termos de Uso, entre em contato conosco através do e-mail:{" "}
-              <a href="mailto:contato@cppu.org.br" className={styles.contactEmail}>
-                contato@cppu.org.br
+              <a href="mailto:cppu.unifesp@gmail.com" className={styles.contactEmail}>
+                cppu.unifesp@gmail.com
               </a>
             </p>
           </aside> */}

@@ -28,7 +28,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerContent}>
         <div className={styles.logoContainer}>
-          <Image src="/header_pepper_white.png" alt="Logo" width={50} height={50} className={styles.pepper} />
+          <Image src="/Logo_CPPU.png" alt="Logo" width={60} height={32} className={styles.pepper} />
           <div className={styles.logo}>CPPU</div>
         </div>
         
