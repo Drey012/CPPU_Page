@@ -130,17 +130,6 @@
   margin-bottom: 8px;
 }
 
-.articleContent a {
-  color: var(--primary);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.articleContent a:hover {
-  border-bottom-color: var(--primary);
-}
-
 /* Rodapé */
 .articleFooter {
   margin-top: 60px;
@@ -320,4 +309,312 @@
   outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+/* ===== ESTILOS RESPONSIVOS PARA CONTEÚDO DINÂMICO ===== */
+
+.articleContent {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* Container responsivo para tabelas e elementos largos */
+.articleContent > * {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Tabelas responsivas */
+.articleContent table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.95em;
+  min-width: 300px; /* Minimum width for readability */
+}
+
+.articleContent table th,
+.articleContent table td {
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  text-align: left;
+  word-break: break-word;
+}
+
+.articleContent table th {
+  background-color: var(--light-bg);
+  font-weight: 600;
+}
+
+/* Imagens responsivas */
+.articleContent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Containers e divs responsivas */
+.articleContent div {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Iframes e elementos embed responsivos */
+.articleContent iframe,
+.articleContent embed,
+.articleContent object {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+/* Listas */
+.articleContent ul, 
+.articleContent ol {
+  margin: 20px 0;
+  padding-left: 30px;
+}
+
+.articleContent li {
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+/* Citações */
+.articleContent blockquote {
+  border-left: 4px solid var(--primary);
+  padding: 15px 20px;
+  margin: 30px 0;
+  font-style: italic;
+  color: var(--text-secondary);
+  background-color: var(--quote-bg);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Cabeçalhos */
+.articleContent h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin: 40px 0 20px 0;
+  border-left: 4px solid var(--primary);
+  padding-left: 15px;
+  line-height: 1.4;
+}
+
+.articleContent h3 {
+  font-size: 1.4rem;
+  color: var(--text);
+  margin: 30px 0 15px 0;
+  line-height: 1.4;
+}
+
+.articleContent h4 {
+  font-size: 1.2rem;
+  margin: 25px 0 12px 0;
+  line-height: 1.4;
+}
+
+/* Parágrafos */
+.articleContent p {
+  margin-bottom: 1.5em;
+  text-align: justify;
+  word-break: break-word;
+}
+
+/* Links */
+.articleContent a {
+  color: var(--default-colors);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  word-break: break-all;
+}
+
+.articleContent a:hover {
+  border-bottom-color: var(--default-colors);
+}
+
+/* ===== CORREÇÕES ESPECÍFICAS PARA MOBILE ===== */
+
+@media (max-width: 768px) {
+  .articleContent {
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+  }
+  
+  .articleContent h2 {
+    font-size: 1.5rem;
+    margin: 30px 0 15px 0;
+  }
+  
+  .articleContent h3 {
+    font-size: 1.2rem;
+    margin: 25px 0 12px 0;
+  }
+  
+  .articleContent h4 {
+    font-size: 1.1rem;
+  }
+  
+  /* Tabelas em mobile - scroll horizontal */
+  .articleContent table {
+    display: block;
+    font-size: 0.9em;
+  }
+  
+  .articleContent table th,
+  .articleContent table td {
+    padding: 8px 10px;
+    min-width: 120px;
+  }
+  
+  /* Listas em mobile */
+  .articleContent ul,
+  .articleContent ol {
+    padding-left: 20px;
+  }
+  
+  /* Blocos de código em mobile */
+  .articleContent pre {
+    font-size: 0.85em;
+    padding: 12px;
+  }
+  
+  /* Citações em mobile */
+  .articleContent blockquote {
+    padding: 12px 15px;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .articleContent {
+    font-size: 0.95rem;
+  }
+  
+  .articleContent h2 {
+    font-size: 1.3rem;
+    padding-left: 10px;
+  }
+  
+  .articleContent h3 {
+    font-size: 1.1rem;
+  }
+  
+  .articleContent table {
+    font-size: 0.85em;
+  }
+  
+  .articleContent table th,
+  .articleContent table td {
+    padding: 6px 8px;
+  }
+}
+
+/* ===== UTILITÁRIOS PARA CONTEÚDO DINÂMICO ===== */
+
+/* Forçar quebra de palavras longas */
+.articleContent {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Container scroll para elementos muito largos */
+.content-container {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Estilos para elementos sem classe */
+.articleContent div:not([class]) {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.articleContent span:not([class]) {
+  word-break: break-word;
+}
+
+/* ===== TEMA ESCURO - ESTILOS ESPECÍFICOS ===== */
+
+.dark .articleContent {
+  color: #e0e0e0;
+}
+
+.dark .articleContent h3 {
+  color: #f0f0f0;
+}
+
+.dark .articleContent h4 {
+  color: #e8e8e8;
+}
+
+/* Tabelas no tema escuro */
+.dark .articleContent table {
+  border-color: #555;
+}
+
+.dark .articleContent table th,
+.dark .articleContent table td {
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.dark .articleContent table th {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+.dark .articleContent table tr:nth-child(even) {
+  background-color: #2f2f2f;
+}
+
+.dark .articleContent table tr:hover {
+  background-color: #3a3a3a;
+}
+
+/* Blocos de citação no tema escuro */
+.dark .articleContent blockquote {
+  color: #bdbdbd;
+  background-color: #2a2a2a;
+  border-left-color: var(--primary);
+}
+
+/* Links no tema escuro */
+.dark .articleContent a:not([class]) {
+  color: #4fc3f7 !important;
+}
+
+.dark .articleContent a:hover {
+  border-bottom-color: #4fc3f7;
+}
+
+/* Reset de cores para elementos sem estilo */
+.dark .articleContent div:not([class]) {
+  color: inherit;
+}
+
+.dark .articleContent span:not([class]) {
+  color: inherit;
+}
+
+/* Imagens - ajuste de contraste no tema escuro */
+.dark .articleContent img {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* ===== COMPONENTE REACT PARA SANITIZAÇÃO E ESTILIZAÇÃO ===== */
+
+.articleContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.MsoNormal {
+  height: .5em !important;
 }

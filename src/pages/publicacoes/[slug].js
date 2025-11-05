@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import SanitizedContent from '../../components/SanitizedContent';
 import styles from '../../styles/artigo.module.css';
 
 export default function PublicacaoIndividual() {
@@ -11,14 +12,32 @@ export default function PublicacaoIndividual() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Buscar post individual
+  // Buscar post individual com cache
   useEffect(() => {
     if (!slug) return;
 
     const fetchPost = async () => {
+      // Verificar cache primeiro
+      const cacheKey = `post-${slug}`;
+      const cached = sessionStorage.getItem(cacheKey);
+      
+      if (cached) {
+        setPost(JSON.parse(cached));
+        setLoading(false);
+        return;
+      }
+
       try {
         setLoading(true);
-        const res = await fetch(`https://cppuapi-production.up.railway.app/getUniquePost.php?slug=${slug}`);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+
+        const res = await fetch(
+          `https://cppuapi-production.up.railway.app/getUniquePost.php?slug=${slug}`,
+          { signal: controller.signal }
+        );
+        
+        clearTimeout(timeoutId);
         
         if (!res.ok) throw new Error('Erro ao carregar publicação');
         
@@ -28,10 +47,12 @@ export default function PublicacaoIndividual() {
           throw new Error(data.error);
         }
         
+        // Cache na sessionStorage (dura durante a sessão)
+        sessionStorage.setItem(cacheKey, JSON.stringify(data));
         setPost(data);
       } catch (err) {
         console.error('Erro:', err);
-        setError(err.message);
+        setError(err.name === 'AbortError' ? 'Tempo limite excedido' : err.message);
       } finally {
         setLoading(false);
       }
@@ -69,28 +90,12 @@ export default function PublicacaoIndividual() {
     );
   }
 
-  if (error) {
+  if (error || !post) {
     return (
       <main className={styles.container}>
         <div className={styles.errorContainer}>
-          <h1>Erro</h1>
-          <p>{error}</p>
-          <button 
-            onClick={() => router.push('/publicacoes')}
-            className={styles.backButton}
-          >
-            ← Voltar para Publicações
-          </button>
-        </div>
-      </main>
-    );
-  }
-
-  if (!post) {
-    return (
-      <main className={styles.container}>
-        <div className={styles.errorContainer}>
-          <h1>Publicação não encontrada</h1>
+          <h1>{error ? 'Erro' : 'Publicação não encontrada'}</h1>
+          <p>{error || 'A publicação solicitada não existe.'}</p>
           <button 
             onClick={() => router.push('/publicacoes')}
             className={styles.backButton}
@@ -120,6 +125,7 @@ export default function PublicacaoIndividual() {
           <button 
             onClick={() => router.push('/publicacoes')}
             className={styles.backButton}
+            aria-label="Voltar para lista de publicações"
           >
             ← Voltar para Publicações
           </button>
@@ -138,23 +144,21 @@ export default function PublicacaoIndividual() {
         </header>
 
         {/* Imagem destacada */}
-        {post.imageUrl && post.imageUrl !== '/default.png' && (
+        {post.imageUrl && post.imageUrl !== '/default.jpg' && (
           <div className={styles.featuredImage}>
             <img 
               src={post.imageUrl} 
               alt={post.title}
               className={styles.articleImage}
+              loading="lazy"
             />
           </div>
         )}
 
-        {/* Conteúdo do artigo */}
-        <div 
-          className={styles.articleContent}
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        {/* Conteúdo do artigo com sanitização */}
+        <SanitizedContent content={post.content} />
 
-        {/* Rodapé do artigo */}
+        {/* Rodapé do artigo
         <footer className={styles.articleFooter}>
           <div className={styles.originalPost}>
             <a 
@@ -166,7 +170,7 @@ export default function PublicacaoIndividual() {
               Ver publicação original no Blogger →
             </a>
           </div>
-        </footer>
+        </footer> */}
       </motion.article>
     </main>
   );
