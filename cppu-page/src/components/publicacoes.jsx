@@ -4,6 +4,7 @@ import BlogPosts from './BlogPosts';
 import SkeletonPost from './SkeletonPost';
 import styles from '../styles/Publicacoes.module.css';
 import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const PAGE_SIZE = 6; // posts por página local
 const SKELETONS = 3;
@@ -123,21 +124,26 @@ export default function Publicacoes() {
             </div>
 
             <div className={styles.pagination}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <ChevronLeft className={styles.paginationIcon} />
               <button
                 className={`${styles.paginationButton} ${styles.prev}`}
                 onClick={handlePrev}
                 disabled={currentPage === 1}
-              >
+                >
                 Página anterior
               </button>
-
+                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0' }}>
               <button
                 className={styles.paginationButton}
                 onClick={handleNext}
                 disabled={currentPage === totalPages && !nextPageToken}
               >
-                Próxima página
+                Próxima página 
               </button>
+              <ChevronRight className={styles.paginationIcon} />
+              </div>
             </div>
 
             {loading && allPosts.length > 0 && (

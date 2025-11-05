@@ -138,7 +138,7 @@ export default function PublicacaoIndividual() {
         </header>
 
         {/* Imagem destacada */}
-        {post.imageUrl && post.imageUrl !== '/default.jpg' && (
+        {post.imageUrl && post.imageUrl !== '/default.png' && (
           <div className={styles.featuredImage}>
             <img 
               src={post.imageUrl} 
