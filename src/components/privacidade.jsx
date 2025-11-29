@@ -122,8 +122,8 @@ export default function PrivacyPolicy() {
 
                 <p>
                   Para exercer esses direitos, entre em contato conosco pelo email:{" "}
-                  <a href="mailto:contato@cppu.com.br" className={styles.contactEmail}>
-                    contato@cppu.com.br
+                  <a href="mailto:cppu.unifesp@gmail.com" className={styles.contactEmail}>
+                    cppu.unifesp@gmail.com
                   </a>
                 </p>
               </div>

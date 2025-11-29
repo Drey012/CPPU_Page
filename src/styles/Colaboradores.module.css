@@ -82,6 +82,7 @@
   padding: .5rem;
   background-color: white;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .partnerImage {

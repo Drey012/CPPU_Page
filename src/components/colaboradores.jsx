@@ -89,7 +89,7 @@ export default function Colaboradores() {
               Estamos sempre abertos a novas parcerias que compartilhem nossa missão de democratizar o acesso à
               educação.
             </p>
-            <a href="#contato" className={styles.joinButton}>
+            <a href="mailto:cppu.unifesp@gmail.com?subject=Proposta de parceria" className={styles.joinButton}>
               Entre em contato
             </a>
           </section>
