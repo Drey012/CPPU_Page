@@ -18,8 +18,8 @@ export default function Hero() {
         <h1>Cursinho Popular Pimentas Unifesp</h1>
         <p>Preparando jovens para ingressar no ensino superior com qualidade e acessibilidade</p>
         <div className={styles.buttonGroup}>
-          <Button href="#pre-inscricoes" variant="primary">Pré-inscrições</Button>
-          <Button href="#apostilas" variant="accent">Apostilas</Button>
+          <Button href="#materiais" variant="primary">Materiais de estudo</Button>
+          <Button href="https://www.gov.br/mec/pt-br/cpop" variant="accent">CPOP</Button>
         </div>
       </div>
     </section>
