@@ -15,7 +15,7 @@ export default function Header() {
       }
     };
 
-    handleResize();
+    handleResize(); 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
