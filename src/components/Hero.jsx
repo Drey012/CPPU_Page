@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section id="inicio" className={styles.hero}>
       <Image
-        src="/banner_cppu.png"
+        src="/banner_cppu_v2.png"
         alt="Cursinho Popular Pimentas Unifesp"
         fill
         priority
